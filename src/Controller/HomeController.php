@@ -47,7 +47,6 @@ class HomeController extends AbstractController
            $em->persist($comments);
            $em->flush();
 
-           var_dump($comments);
        }
         return $this->render('home/post.html.twig', [
             'post' => $post,
