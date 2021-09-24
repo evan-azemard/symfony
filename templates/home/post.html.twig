@@ -4,41 +4,52 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <a class="btn btn-primary" href="/home">Retour</a>
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="card-text">{{ post.content }}</p>
-                        <p>{{ post.auther }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-10">
-                        {{ form(form) }}
-                    </div>
-                    <div class="col-md-9">
-                        {% for comment in post.comments %}
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ comment.pseudo }}</h5>
-                                            <p class="card-text">{{ comment.content}}</p>
-                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                        </div>
+    <body id="body_post_home">
+        <header>
+            <div id="titre_post">
+{{ post.title }}
+            </div>
+
+        </header>
+        <main>
+            <section id="post_sec1">
+                    <section class="section_index_home_content_main">
+                        <article>
+                            <div class="section_index_home_content_main_div1">
+                                <img src="https://via.placeholder.com/500" class="card-img-top" alt="...">
+                            </div>
+                            <div class="section_index_home_content_main_div2">
+                                <div class="section_index_home_content_main_div2_art1">
+                                    <p class="card-text">{{ post.content }}</p>
+                                </div>
+                                <div class="section_index_home_content_main_div2_art2">
+                                    <div class="card_home_1">
+                                        <h5 class="card-title">{{ post.title }}</h5>
                                     </div>
+                                    <div class="card_home_2">
+                                        <h6>{{ post.auther }}</h6>
+                                    </div>
+                                    <div class="card_home_3">
+                                        <a href="/home" id="but_home">Retour</a></div>
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        </article>
+                    </section>
+            </section>
+            <section id="post_sec2">
+                {% for comment in post.comments %}
 
+                <article id="post_art_sec2">
+                    <div id="post_div_sec1">{{ comment.pseudo }}</div>
+                    <div id="post_div_sec2">{{ comment.content }}</div>
+                </article>
+                {% endfor %}
+
+            </section>
+            <section id="post_sec3">
+                {{ form(form) }}
+            </section>
+        </main>
+    </body>
 
 {% endblock %}

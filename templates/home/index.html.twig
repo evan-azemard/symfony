@@ -4,25 +4,47 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            {% for post in posts %}
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.content }}</p>
-                            <p>{{ post.auther }}</p>
-                            <a href="/posts/{{ post.id }}" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
+        <body id="body_index_home">
+        <section id="section_index_home_main">
+                <article id="sec_ind_home_main_art1"><span>Blog symfony</span></article>
+                <article id="sec_ind_home_main_art2">
+                        <a id="a_home" href="#">Home</a>
+                </article>
+                <article id="sec_ind_home_main_art3"><span>Projet Evan Azemard</span></article>
+        </section>
+        {% for post in posts %}
 
-            {% endfor %}
+                <section class="section_index_home_content">
+                        <section class="section_index_home_content_main">
+                                <article>
+                                        <div class="section_index_home_content_main_div1">
+                                                <img src="https://via.placeholder.com/500" class="card-img-top" alt="...">
+                                        </div>
+                                        <div class="section_index_home_content_main_div2">
+                                                <div class="section_index_home_content_main_div2_art1">
+                                                        <p class="card-text">{{ post.content }}</p>
+                                                </div>
+                                                <div class="section_index_home_content_main_div2_art2">
+                                                        <div class="card_home_1">
+                                                                <h5 class="card-title">{{ post.title }}</h5>
+                                                        </div>
+                                                        <div class="card_home_2">
+                                                                <h6>{{ post.auther }}</h6>
+                                                        </div>
+                                                        <div class="card_home_3">
+                                                                <a href="/posts/{{ post.id }}" id="but_home">voir l'article</a></div>
+                                                </div>
+                                        </div>
+                                </article>
+                        </section>
 
-        </div>
-    </div>
+                </section>
+        {% endfor %}#}
+
+
+        </body>
+
+
 
 
 {% endblock %}
